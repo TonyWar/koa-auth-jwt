@@ -1,0 +1,35 @@
+{
+  "name": "koa-auth-jwt",
+  "version": "1.0.0",
+  "description": "koa auth",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonyWar/koa-auth-jwt.git"
+  },
+  "keywords": [
+    "koa2",
+    "jwt"
+  ],
+  "author": "TonyW",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TonyWar/koa-auth-jwt/issues"
+  },
+  "homepage": "https://github.com/TonyWar/koa-auth-jwt#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/preset-env": "^7.3.1",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
