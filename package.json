@@ -4,7 +4,9 @@
   "description": "koa auth",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "start": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js"
   },
   "repository": {
     "type": "git",
