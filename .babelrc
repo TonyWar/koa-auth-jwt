@@ -1,20 +1,15 @@
 {
   "sourceMaps": "both",
   "presets": [
-    "@babel/env"
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "current"
+      }
+    }]
   ],
   "plugins": [
     "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread"
+    "@babel/proposal-object-rest-spread",
+    "@babel/plugin-transform-async-to-generator",
   ],
-  "env": {
-    "production": {
-      "plugins": [
-        "source-map-support"
-      ],
-      "ignore": [
-        "**/__tests__/**"
-      ]
-    }
-  }
 }
