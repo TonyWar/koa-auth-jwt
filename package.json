@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
-    "debug": "nodemon --inspect --exec babel-node src/server.js",
+    "debug": "set DEBUG=koa* & nodemon --inspect --exec babel-node src/server.js",
     "dev": "webpack --mode development --config ./webpack/webpack.development.js",
     "build": "webpack --mode production --config ./webpack/webpack.production.js",
     "serve": "node dist/server.js"
@@ -33,6 +33,7 @@
     "@babel/plugin-transform-async-to-generator": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
+    "debug": "^4.1.1",
     "nodemon": "^1.18.9",
     "webpack": "^4.29.1",
     "webpack-cli": "^3.2.3",

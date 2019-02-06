@@ -1,11 +1,15 @@
 import Koa from 'koa'
-const app = new Koa()
+import {xResponseTime, logger} from './examples/response-time';
 
-// response
-app.use(async (ctx) => {
-  ctx.body = 'Hello World'
-})
+const app = new Koa();
 
-app.listen(3000, () => console.log('server started 3000'))
+app.use(xResponseTime);
+app.use(logger);
+app.use(async ctx => {
+  ctx.body = 'Hello world';
+});
 
-export default app
+
+app.listen(3000, () => console.log('server started 3000'));
+
+export default app;
