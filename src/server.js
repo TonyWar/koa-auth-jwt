@@ -1,10 +1,7 @@
 import Koa from 'koa'
-import {xResponseTime, logger} from './examples/response-time';
 
 const app = new Koa();
 
-app.use(xResponseTime);
-app.use(logger);
 app.use(async ctx => {
   ctx.body = 'Hello world';
 });
