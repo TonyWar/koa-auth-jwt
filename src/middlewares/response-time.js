@@ -9,7 +9,6 @@ export async function xResponseTime (ctx, next) {
 }
 
 // logger
-
 export async function logger (ctx, next) {
   const start = Date.now();
   await next();
