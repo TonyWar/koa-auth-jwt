@@ -45,7 +45,7 @@ function generateGetCollection(defaultPagination) {
 }
 
 async function checkItemId(ctx, next) {
-  const item = collection[ctx.params.id];
+  const item = collection.find(item => item.id == ctx.params.id);
   if (!item) {
     ctx.status = 404;
     ctx.body = {
@@ -58,8 +58,32 @@ async function checkItemId(ctx, next) {
 
 router.get('/', generateLinkHeaderOfCollection(defaultPagination), generateGetCollection(defaultPagination));
 router.get('/:id', checkItemId, async (ctx, next) => {
-  const item = collection[ctx.params.id];
+  const item = collection.find(item => item.id == ctx.params.id);
   ctx.body = item;
+});
+router.post('/', koaBody, async (ctx, next) => {
+  if (collection.find(item => item.id == ctx.request.body.id)) {
+    ctx.status = 409;
+    ctx.body = {
+      message: 'Item already exists'
+    }
+    return;
+  }
+  collection.push(ctx.request.body);
+  ctx.status = 201;
+  ctx.body = ctx.request.body;
+})
+router.put('/:id', koaBody, checkItemId, async (ctx, next) => {
+  collection[collection.findIndex(item => item.id == ctx.params.id)] = ctx.request.body;
+  ctx.status = 204;
+  ctx.body = ctx.request.body;
+})
+router.delete('/:id', koaBody, checkItemId, async (ctx, next) => {
+  collection.splice(ctx.params.id, 1);
+  ctx.status = 204;
+  ctx.body = {
+    message: 'Successfull remove item'
+  }
 })
 
 export default router;
